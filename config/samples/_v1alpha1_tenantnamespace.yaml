@@ -1,0 +1,19 @@
+apiVersion: hws.io/v1alpha1
+kind: TenantNamespace
+metadata:
+  labels:
+    app.kubernetes.io/name: tenantnamespace
+    app.kubernetes.io/instance: tenantnamespace-sample
+    app.kubernetes.io/part-of: hws-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: hws-operator
+  name: tenantnamespace-sample
+spec:
+  namespaceName: "tenant-namespace"
+  projectId: "project-id"
+  projectMembers: ["user1@domain.com", "user2@domain.com"]
+  maxCpu: "500mi"
+  maxMemory: "512Mi"
+  maxStorage: "1Gi"
+  defaultCpu: "100m"
+  defaultMemory: "128Mi"

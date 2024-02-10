@@ -1,0 +1,8 @@
+---
+# defaults file for TenantNamespace
+namespaceName: "tenant-namespace"
+projectId: "project-id"
+projectMembers: ["user1@domain.com", "user2@domain.com"]
+maxCpu: "500mi"
+maxMemory: "512Mi"
+maxStorage: "1Gi"
