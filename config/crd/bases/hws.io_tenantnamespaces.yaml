@@ -33,13 +33,20 @@ spec:
               description: Spec defines the desired state of TenantNamespace
               type: object
               required:
-                - namespaceName
                 - projectId
                 - projectMembers
                 - maxCpu
                 - maxMemory
                 - maxStorage
               properties:
+                projectId:
+                  type: string
+                  description: ProjectId defines the heritage project Id
+                projectMembers:
+                  type: array
+                  description: ProjectMembers defines the list of members for the project
+                  items:
+                    type: string
                 maxCpu:
                   type: string
                   description: MaxCpu defines the maximum CPU limit for the namespace
@@ -49,17 +56,6 @@ spec:
                 maxStorage:
                   type: string
                   description: MaxStorage defines the maximum Storage limit for the namespace
-                namespaceName:
-                  type: string
-                  description: NamespaceName defines the name of the namespace
-                projectId:
-                  type: string
-                  description: ProjectId defines the heritage project Id
-                projectMembers:
-                  type: array
-                  description: ProjectMembers defines the list of members for the project
-                  items:
-                    type: string
             status:
               description: Status defines the observed state of TenantNamespace
               type: object

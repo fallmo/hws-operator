@@ -33,7 +33,7 @@ spec:
   - namespaces
   - tenant
   links:
-  - name: Hws Operator
+  - name: HWS Operator
     url: https://heritage.africa
   maturity: alpha
   provider:

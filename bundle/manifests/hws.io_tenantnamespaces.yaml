@@ -42,9 +42,6 @@ spec:
                 description: MaxStorage defines the maximum Storage limit for the
                   namespace
                 type: string
-              namespaceName:
-                description: NamespaceName defines the name of the namespace
-                type: string
               projectId:
                 description: ProjectId defines the heritage project Id
                 type: string
@@ -54,7 +51,6 @@ spec:
                   type: string
                 type: array
             required:
-            - namespaceName
             - projectId
             - projectMembers
             - maxCpu

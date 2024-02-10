@@ -9,21 +9,14 @@ metadata:
           "kind": "TenantNamespace",
           "metadata": {
             "labels": {
-              "app.kubernetes.io/created-by": "hws-operator",
-              "app.kubernetes.io/instance": "tenantnamespace-sample",
-              "app.kubernetes.io/managed-by": "kustomize",
-              "app.kubernetes.io/name": "tenantnamespace",
-              "app.kubernetes.io/part-of": "hws-operator"
+              "app.kubernetes.io/created-by": "hws-operator"
             },
             "name": "tenantnamespace-sample"
           },
           "spec": {
-            "defaultCpu": "100m",
-            "defaultMemory": "128Mi",
-            "maxCpu": "500mi",
+            "maxCpu": "500m",
             "maxMemory": "512Mi",
             "maxStorage": "1Gi",
-            "namespaceName": "tenant-namespace",
             "projectId": "project-id",
             "projectMembers": [
               "user1@domain.com",
@@ -33,240 +26,241 @@ metadata:
         }
       ]
     capabilities: Basic Install
-    createdAt: "2024-02-10T01:02:42Z"
+    createdAt: "2024-02-10T02:17:50Z"
     operators.operatorframework.io/builder: operator-sdk-v1.33.0
     operators.operatorframework.io/project_layout: ansible.sdk.operatorframework.io/v1
-  name: hws-operator.v0.0.1
+  name: hws-operator.v0.0.4
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
     owned:
-    - kind: TenantNamespace
-      name: tenantnamespaces.hws.io
-      version: v1alpha1
+      - kind: TenantNamespace
+        name: tenantnamespaces.hws.io
+        version: v1alpha1
+        description: Configuration for a tenant namespace
   description: Additional functionality added by heritage web services.
   displayName: Heritage Web Services Operator
   icon:
-  - base64data: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iYiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjkuNjcgMzQ1Ljc2Ij4KICA8ZyBpZD0iYyIgZGF0YS1uYW1lPSJpY29uIDQiPgogICAgPHBhdGggZmlsbD0iI0MxMkY0MSIgZD0iTTE1OC45OCwzNDUuNzZoNjQuNjNjLTQuNS0yNi4wNS04LjEyLTU1LjQtOS43NC04Ny41OC0yLjAyLTQwLjA3LS41My03Ni4yOCwyLjUyLTEwNy42MiwxLjk2LTEwLjQ4LDcuODYtMzMuMTUsMjcuNC00OS45NywxNi4yMy0xMy45OCwzNS43LTE4LjYsNDQuMTgtMjAuNjIsNy42NS0xLjgyLDEwLjI3LTEuNjEsMjcuMTktNC40OSwxNS4wOS0yLjU3LDI3LjMzLTUuMTYsMzUuNDItNi45OCwxMy4yNS0yLjkxLDIwLjItMTEuNCwxOC45Ni0xNi40Ni0xLjAxLTQuMTMtNy43Ni03LjE2LTE1LjcxLTcuNTctNy4yNi0uMDMtMjAuMDMsLjA3LTM1LjkyLDEuMDgtNDUuNzIsMi45MS03OC41LDEwLjkxLTgxLjA2LDMuNzQtLjI0LS42OC0uMzYtMS45MSwxLTMuOTksNi4wMy0yLjY0LDE0LjgxLTYuMTgsMjUuNjktOS40OCwyNi40Mi04LDQ0LjEyLTguMTgsNDcuNjQtMTguNDYsLjEzLS4zOSwxLjM1LTQuMS0uMjUtNy43My0yLjY5LTYuMTEtMTIuMDktOS4xOC0yMy45NS03Ljk4QzI0OS4wMy0uMDgsMjE2Ljg4LS4xOSwxOTIuNDQsLjE2Yy0zNC40MiwuNDktMTAzLjM4LDIuNjEtMTEyLjk5LDIyLjctLjY1LDEuMzYtMi41Miw1LjI3LTEsOC43MywyLjMsNS4yLDEwLjg1LDYuMSwyOC4xOCw2Ljk4LDkuMywuNDcsMjEuMjMsLjk0LDM1LjIzLDEuMTUsMS4yMiwxLjI0LDIuNjQsMy4wNCwyLjE4LDQuNTktMS4zNSw0LjUtMTcuNjEsMy4yNy0yMi4yLDIuOTlDODQuODEsNDUuMDMsMyw1NC45MiwuMDgsNzMuNDJjLS40OCwzLjA2LDEuMyw1LjYzLDEuNzYsNi4zLDEwLjExLDE0LjU5LDU4LjAzLTE3LjY3LDg3Ljc0LC40NSwuMzEsLjE5LDcuODUsNC44Niw2Ljk1LDcuODQtMS4zOCw0LjU4LTIwLjU0LTEuNzctNDAuMjgsNy41Ny0uNzgsLjM3LTE1Ljg0LDcuNjEtMTQuNzIsMTIuNTgsMS41Nyw2Ljk5LDMyLjU0LTIuMzQsNzEuMDksMTAuNzMsOC40MSwyLjg1LDI5LjEzLDEwLjE3LDQzLjEzLDI5LjYyLDMuMDQsNC4yMyw5LjE4LDEzLjc2LDE0LjI0LDQzLjcxLDYuMjcsMzcuMTEsNC40OCw2Ny41NSwzLjAzLDgzLjA0LTEuNjgsMTcuOTctNS4zOCw0Mi4zNS0xNC4wNCw3MC41MVoiLz4KICA8L2c+Cjwvc3ZnPg==
-    mediatype: image/svg+xml
+    - base64data: "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iYiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjkuNjcgMzQ1Ljc2Ij4KICA8ZyBpZD0iYyIgZGF0YS1uYW1lPSJpY29uIDQiPgogICAgPHBhdGggZmlsbD0iI0MxMkY0MSIgZD0iTTE1OC45OCwzNDUuNzZoNjQuNjNjLTQuNS0yNi4wNS04LjEyLTU1LjQtOS43NC04Ny41OC0yLjAyLTQwLjA3LS41My03Ni4yOCwyLjUyLTEwNy42MiwxLjk2LTEwLjQ4LDcuODYtMzMuMTUsMjcuNC00OS45NywxNi4yMy0xMy45OCwzNS43LTE4LjYsNDQuMTgtMjAuNjIsNy42NS0xLjgyLDEwLjI3LTEuNjEsMjcuMTktNC40OSwxNS4wOS0yLjU3LDI3LjMzLTUuMTYsMzUuNDItNi45OCwxMy4yNS0yLjkxLDIwLjItMTEuNCwxOC45Ni0xNi40Ni0xLjAxLTQuMTMtNy43Ni03LjE2LTE1LjcxLTcuNTctNy4yNi0uMDMtMjAuMDMsLjA3LTM1LjkyLDEuMDgtNDUuNzIsMi45MS03OC41LDEwLjkxLTgxLjA2LDMuNzQtLjI0LS42OC0uMzYtMS45MSwxLTMuOTksNi4wMy0yLjY0LDE0LjgxLTYuMTgsMjUuNjktOS40OCwyNi40Mi04LDQ0LjEyLTguMTgsNDcuNjQtMTguNDYsLjEzLS4zOSwxLjM1LTQuMS0uMjUtNy43My0yLjY5LTYuMTEtMTIuMDktOS4xOC0yMy45NS03Ljk4QzI0OS4wMy0uMDgsMjE2Ljg4LS4xOSwxOTIuNDQsLjE2Yy0zNC40MiwuNDktMTAzLjM4LDIuNjEtMTEyLjk5LDIyLjctLjY1LDEuMzYtMi41Miw1LjI3LTEsOC43MywyLjMsNS4yLDEwLjg1LDYuMSwyOC4xOCw2Ljk4LDkuMywuNDcsMjEuMjMsLjk0LDM1LjIzLDEuMTUsMS4yMiwxLjI0LDIuNjQsMy4wNCwyLjE4LDQuNTktMS4zNSw0LjUtMTcuNjEsMy4yNy0yMi4yLDIuOTlDODQuODEsNDUuMDMsMyw1NC45MiwuMDgsNzMuNDJjLS40OCwzLjA2LDEuMyw1LjYzLDEuNzYsNi4zLDEwLjExLDE0LjU5LDU4LjAzLTE3LjY3LDg3Ljc0LC40NSwuMzEsLjE5LDcuODUsNC44Niw2Ljk1LDcuODQtMS4zOCw0LjU4LTIwLjU0LTEuNzctNDAuMjgsNy41Ny0uNzgsLjM3LTE1Ljg0LDcuNjEtMTQuNzIsMTIuNTgsMS41Nyw2Ljk5LDMyLjU0LTIuMzQsNzEuMDksMTAuNzMsOC40MSwyLjg1LDI5LjEzLDEwLjE3LDQzLjEzLDI5LjYyLDMuMDQsNC4yMyw5LjE4LDEzLjc2LDE0LjI0LDQzLjcxLDYuMjcsMzcuMTEsNC40OCw2Ny41NSwzLjAzLDgzLjA0LTEuNjgsMTcuOTctNS4zOCw0Mi4zNS0xNC4wNCw3MC41MVoiLz4KICA8L2c+Cjwvc3ZnPg=="
+      mediatype: "image/svg+xml"
   install:
     spec:
       clusterPermissions:
-      - rules:
-        - apiGroups:
-          - ""
-          resources:
-          - namespaces
-          - resourcequotas
-          - limitranges
-          - groups
-          - networkpolicies
-          - rolebindings
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - ""
-          resources:
-          - secrets
-          - pods
-          - pods/exec
-          - pods/log
-          verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
-        - apiGroups:
-          - apps
-          resources:
-          - deployments
-          - daemonsets
-          - replicasets
-          - statefulsets
-          verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
-        - apiGroups:
-          - hws.io
-          resources:
-          - tenantnamespaces
-          - tenantnamespaces/status
-          - tenantnamespaces/finalizers
-          verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
-        - apiGroups:
-          - authentication.k8s.io
-          resources:
-          - tokenreviews
-          verbs:
-          - create
-        - apiGroups:
-          - authorization.k8s.io
-          resources:
-          - subjectaccessreviews
-          verbs:
-          - create
-        serviceAccountName: hws-operator-controller-manager
+        - rules:
+            - apiGroups:
+                - ""
+              resources:
+                - namespaces
+                - resourcequotas
+                - limitranges
+                - groups
+                - networkpolicies
+                - rolebindings
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - ""
+              resources:
+                - secrets
+                - pods
+                - pods/exec
+                - pods/log
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - deployments
+                - daemonsets
+                - replicasets
+                - statefulsets
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - hws.io
+              resources:
+                - tenantnamespaces
+                - tenantnamespaces/status
+                - tenantnamespaces/finalizers
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - authentication.k8s.io
+              resources:
+                - tokenreviews
+              verbs:
+                - create
+            - apiGroups:
+                - authorization.k8s.io
+              resources:
+                - subjectaccessreviews
+              verbs:
+                - create
+          serviceAccountName: hws-operator-controller-manager
       deployments:
-      - label:
-          app.kubernetes.io/component: manager
-          app.kubernetes.io/created-by: hws-operator
-          app.kubernetes.io/instance: controller-manager
-          app.kubernetes.io/managed-by: kustomize
-          app.kubernetes.io/name: deployment
-          app.kubernetes.io/part-of: hws-operator
-          control-plane: controller-manager
-        name: hws-operator-controller-manager
-        spec:
-          replicas: 1
-          selector:
-            matchLabels:
-              control-plane: controller-manager
-          strategy: {}
-          template:
-            metadata:
-              annotations:
-                kubectl.kubernetes.io/default-container: manager
-              labels:
+        - label:
+            app.kubernetes.io/component: manager
+            app.kubernetes.io/created-by: hws-operator
+            app.kubernetes.io/instance: controller-manager
+            app.kubernetes.io/managed-by: kustomize
+            app.kubernetes.io/name: deployment
+            app.kubernetes.io/part-of: hws-operator
+            control-plane: controller-manager
+          name: hws-operator-controller-manager
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
                 control-plane: controller-manager
-            spec:
-              containers:
-              - args:
-                - --secure-listen-address=0.0.0.0:8443
-                - --upstream=http://127.0.0.1:8080/
-                - --logtostderr=true
-                - --v=0
-                image: gcr.io/kubebuilder/kube-rbac-proxy:v0.14.1
-                name: kube-rbac-proxy
-                ports:
-                - containerPort: 8443
-                  name: https
-                  protocol: TCP
-                resources:
-                  limits:
-                    cpu: 500m
-                    memory: 128Mi
-                  requests:
-                    cpu: 5m
-                    memory: 64Mi
+            strategy: {}
+            template:
+              metadata:
+                annotations:
+                  kubectl.kubernetes.io/default-container: manager
+                labels:
+                  control-plane: controller-manager
+              spec:
+                containers:
+                  - args:
+                      - --secure-listen-address=0.0.0.0:8443
+                      - --upstream=http://127.0.0.1:8080/
+                      - --logtostderr=true
+                      - --v=0
+                    image: gcr.io/kubebuilder/kube-rbac-proxy:v0.14.1
+                    name: kube-rbac-proxy
+                    ports:
+                      - containerPort: 8443
+                        name: https
+                        protocol: TCP
+                    resources:
+                      limits:
+                        cpu: 500m
+                        memory: 128Mi
+                      requests:
+                        cpu: 5m
+                        memory: 64Mi
+                    securityContext:
+                      allowPrivilegeEscalation: false
+                      capabilities:
+                        drop:
+                          - ALL
+                  - args:
+                      - --health-probe-bind-address=:6789
+                      - --metrics-bind-address=127.0.0.1:8080
+                      - --leader-elect
+                      - --leader-election-id=hws-operator
+                    env:
+                      - name: ANSIBLE_GATHERING
+                        value: explicit
+                    image: quay.io/mohamedf0/hws-operator:0.0.4
+                    livenessProbe:
+                      httpGet:
+                        path: /healthz
+                        port: 6789
+                      initialDelaySeconds: 15
+                      periodSeconds: 20
+                    name: manager
+                    readinessProbe:
+                      httpGet:
+                        path: /readyz
+                        port: 6789
+                      initialDelaySeconds: 5
+                      periodSeconds: 10
+                    resources:
+                      limits:
+                        cpu: 500m
+                        memory: 768Mi
+                      requests:
+                        cpu: 10m
+                        memory: 256Mi
+                    securityContext:
+                      allowPrivilegeEscalation: false
+                      capabilities:
+                        drop:
+                          - ALL
                 securityContext:
-                  allowPrivilegeEscalation: false
-                  capabilities:
-                    drop:
-                    - ALL
-              - args:
-                - --health-probe-bind-address=:6789
-                - --metrics-bind-address=127.0.0.1:8080
-                - --leader-elect
-                - --leader-election-id=hws-operator
-                env:
-                - name: ANSIBLE_GATHERING
-                  value: explicit
-                image: quay.io/mohamedf0/hws-operator:0.0.1
-                livenessProbe:
-                  httpGet:
-                    path: /healthz
-                    port: 6789
-                  initialDelaySeconds: 15
-                  periodSeconds: 20
-                name: manager
-                readinessProbe:
-                  httpGet:
-                    path: /readyz
-                    port: 6789
-                  initialDelaySeconds: 5
-                  periodSeconds: 10
-                resources:
-                  limits:
-                    cpu: 500m
-                    memory: 768Mi
-                  requests:
-                    cpu: 10m
-                    memory: 256Mi
-                securityContext:
-                  allowPrivilegeEscalation: false
-                  capabilities:
-                    drop:
-                    - ALL
-              securityContext:
-                runAsNonRoot: true
-              serviceAccountName: hws-operator-controller-manager
-              terminationGracePeriodSeconds: 10
+                  runAsNonRoot: true
+                serviceAccountName: hws-operator-controller-manager
+                terminationGracePeriodSeconds: 10
       permissions:
-      - rules:
-        - apiGroups:
-          - ""
-          resources:
-          - configmaps
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - coordination.k8s.io
-          resources:
-          - leases
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - ""
-          resources:
-          - events
-          verbs:
-          - create
-          - patch
-        serviceAccountName: hws-operator-controller-manager
+        - rules:
+            - apiGroups:
+                - ""
+              resources:
+                - configmaps
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - coordination.k8s.io
+              resources:
+                - leases
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - ""
+              resources:
+                - events
+              verbs:
+                - create
+                - patch
+          serviceAccountName: hws-operator-controller-manager
     strategy: deployment
   installModes:
-  - supported: false
-    type: OwnNamespace
-  - supported: false
-    type: SingleNamespace
-  - supported: false
-    type: MultiNamespace
-  - supported: true
-    type: AllNamespaces
+    - supported: false
+      type: OwnNamespace
+    - supported: false
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: true
+      type: AllNamespaces
   keywords:
-  - heritage
-  - africa
-  - namespaces
-  - tenant
+    - heritage
+    - africa
+    - namespaces
+    - tenant
   links:
-  - name: Hws Operator
-    url: https://heritage.africa
+    - name: HWS Operator
+      url: https://heritage.africa
   maturity: alpha
   provider:
     name: heritage.africa
     url: heritage.africa
-  version: 0.0.1
+  version: 0.0.4
