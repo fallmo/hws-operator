@@ -11,7 +11,7 @@ metadata:
             "labels": {
               "app.kubernetes.io/created-by": "hws-operator"
             },
-            "name": "tenantnamespace-sample"
+            "name": "tenantnamespace"
           },
           "spec": {
             "maxCpu": "500m",
@@ -26,10 +26,10 @@ metadata:
         }
       ]
     capabilities: Basic Install
-    createdAt: "2024-02-10T02:17:50Z"
+    createdAt: "2024-02-10T23:51:19Z"
     operators.operatorframework.io/builder: operator-sdk-v1.33.0
     operators.operatorframework.io/project_layout: ansible.sdk.operatorframework.io/v1
-  name: hws-operator.v0.0.4
+  name: hws-operator.v0.1.0
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
@@ -37,8 +37,8 @@ spec:
     owned:
       - kind: TenantNamespace
         name: tenantnamespaces.hws.io
-        version: v1alpha1
         description: Configuration for a tenant namespace
+        version: v1alpha1
   description: Additional functionality added by heritage web services.
   displayName: Heritage Web Services Operator
   icon:
@@ -54,17 +54,45 @@ spec:
                 - namespaces
                 - resourcequotas
                 - limitranges
-                - groups
-                - networkpolicies
-                - rolebindings
               verbs:
+                - create
+                - delete
                 - get
                 - list
-                - watch
-                - create
-                - update
                 - patch
+                - update
+                - watch
+            - apiGroups:
+                - networking.k8s.io
+              resources:
+                - networkpolicies
+              verbs:
+                - create
                 - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - user.openshift.io
+              resources:
+                - groups
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - rbac.authorization.k8s.io
+              resources:
+                - rolebindings
+                - clusterroles
+              verbs:
+                - "*"
             - apiGroups:
                 - ""
               resources:
@@ -177,7 +205,7 @@ spec:
                     env:
                       - name: ANSIBLE_GATHERING
                         value: explicit
-                    image: quay.io/mohamedf0/hws-operator:0.0.4
+                    image: quay.io/mohamedf0/hws-operator:0.1.0
                     livenessProbe:
                       httpGet:
                         path: /healthz
@@ -263,4 +291,4 @@ spec:
   provider:
     name: heritage.africa
     url: heritage.africa
-  version: 0.0.4
+  version: 0.1.0

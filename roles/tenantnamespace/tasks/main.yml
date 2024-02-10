@@ -90,3 +90,4 @@
         - kind: Group
           name: "{{ projectId }}"
           apiGroup: rbac.authorization.k8s.io
+#  - name: send api request to namespaces-api

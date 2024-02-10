@@ -5,6 +5,56 @@ metadata:
   name: manager-role
 rules:
   ##
+  ## Custom Rules
+  ##
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+      - resourcequotas
+      - limitranges
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+      #
+  - apiGroups:
+      - user.openshift.io
+    resources:
+      - groups
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+      #
+  - apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - rolebindings
+      - clusterroles
+    verbs:
+      - "*" # for some reason explicit list wont work
+  ##
   ## Base operator rules
   ##
   - apiGroups:
@@ -55,26 +105,3 @@ rules:
       - update
       - watch
 #+kubebuilder:scaffold:rules
----
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: hws-operator
-rules:
-  - verbs:
-      - get
-      - list
-      - watch
-      - create
-      - update
-      - patch
-      - delete
-    apiGroups:
-      - ""
-    resources:
-      - namespaces
-      - resourcequotas
-      - limitranges
-      - groups
-      - networkpolicies
-      - rolebindings

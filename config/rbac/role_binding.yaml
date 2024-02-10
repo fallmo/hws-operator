@@ -18,23 +18,3 @@ subjects:
   - kind: ServiceAccount
     name: controller-manager
     namespace: system
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  labels:
-    app.kubernetes.io/name: clusterrolebinding
-    app.kubernetes.io/instance: manager-rolebinding
-    app.kubernetes.io/component: rbac
-    app.kubernetes.io/created-by: hws-operator
-    app.kubernetes.io/part-of: hws-operator
-    app.kubernetes.io/managed-by: kustomize
-  name: hws-rolebinding
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: hws-operator
-subjects:
-  - kind: ServiceAccount
-    name: controller-manager
-    namespace: system

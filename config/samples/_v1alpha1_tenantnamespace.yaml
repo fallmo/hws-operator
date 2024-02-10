@@ -3,10 +3,12 @@ kind: TenantNamespace
 metadata:
   labels:
     app.kubernetes.io/created-by: hws-operator
-  name: tenantnamespace-sample
+  name: tenantnamespace
 spec:
-  projectId: "project-id"
-  projectMembers: ["user1@domain.com", "user2@domain.com"]
-  maxCpu: "500m"
-  maxMemory: "512Mi"
-  maxStorage: "1Gi"
+  projectId: project-id
+  projectMembers:
+    - user1@domain.com
+    - user2@domain.com
+  maxCpu: 500m
+  maxMemory: 512Mi
+  maxStorage: 1Gi
