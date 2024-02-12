@@ -22,9 +22,9 @@
           hws.io/managed: ""
       spec:
         hard:
-          limits.cpu: "{{ maxCpu }}"
-          limits.memory: "{{ maxMemory }}"
-          requests.storage: "{{ maxStorage }}"
+          limits.cpu: "{{ max_cpu }}"
+          limits.memory: "{{ max_memory }}"
+          requests.storage: "{{ max_storage }}"
 
 - name: create limitrange
   kubernetes.core.k8s:
@@ -67,10 +67,10 @@
       apiVersion: user.openshift.io/v1
       kind: Group
       metadata:
-        name: "hg-{{ projectId }}"
+        name: "{{ project_id }}"
         labels:
           hws.io/managed: ""
-      users: "{{ projectMembers }}"
+      users: "{{ project_members }}"
 
 - name: create role binding
   kubernetes.core.k8s:
@@ -88,6 +88,6 @@
         name: edit
       subjects:
         - kind: Group
-          name: "hg-{{ projectId }}"
+          name: "{{ project_id }}"
           apiGroup: rbac.authorization.k8s.io
 #  - name: send api request to namespaces-api
