@@ -67,7 +67,7 @@
       apiVersion: user.openshift.io/v1
       kind: Group
       metadata:
-        name: "{{ projectId }}"
+        name: "hg-{{ projectId }}"
         labels:
           hws.io/managed: ""
       users: "{{ projectMembers }}"
@@ -88,6 +88,6 @@
         name: edit
       subjects:
         - kind: Group
-          name: "{{ projectId }}"
+          name: "hg-{{ projectId }}"
           apiGroup: rbac.authorization.k8s.io
 #  - name: send api request to namespaces-api
